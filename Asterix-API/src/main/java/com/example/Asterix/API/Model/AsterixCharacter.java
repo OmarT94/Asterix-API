@@ -1,4 +1,4 @@
-package com.example.Asterix.API.Controller;
+package com.example.Asterix.API.Model;
 
 import org.springframework.data.annotation.Id;
 

@@ -1,5 +1,6 @@
-package com.example.Asterix.API.Controller;
+package com.example.Asterix.API.Repositorie;
 
+import com.example.Asterix.API.Model.AsterixCharacter;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.query.Param;
