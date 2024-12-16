@@ -1,5 +1,6 @@
 package com.example.Asterix.API.Controller;
 
+import com.example.Asterix.API.Dto.CharacterDTO;
 import com.example.Asterix.API.Model.AsterixCharacter;
 import com.example.Asterix.API.Repositorie.CharacterRepository;
 import com.example.Asterix.API.Services.CharacterService;
@@ -7,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/asterix/characters")
@@ -47,26 +47,26 @@ public class AsterixControlle {
 
 
     @GetMapping("/{id}")
-    public AsterixCharacter getAsterixCharacterPyId(@PathVariable String id) {
+    public CharacterDTO getAsterixCharacterPyId(@PathVariable String id) {
 
         return characterService.getCharacterById(id);
     }
 
     @PostMapping
-    public AsterixCharacter addAsterixCharacter(@RequestBody AsterixCharacter character) {
-        return characterService.saveCharacter(character);
+    public AsterixCharacter addAsterixCharacter(@RequestBody CharacterDTO characterDTO) {
+        return characterService.saveCharacter(characterDTO);
     }
 
 
     @PutMapping("/{id}")
-    public  AsterixCharacter updateAsterixCharacter(@PathVariable String id, @RequestBody AsterixCharacter updateCharacter) {
-     return characterService.updateCharacter(id,updateCharacter);
+    public  AsterixCharacter updateAsterixCharacter(@RequestBody AsterixCharacter updateCharacter,@PathVariable String id) {
+     return characterService.updateCharacter(updateCharacter,id);
     }
 
 
     @DeleteMapping("/{id}")
     public void deleteAsterixCharacter(@PathVariable String id) {
-        characterService.deleteupdateCharacter(id);
+        characterService.deleteCharacter(id);
     }
 
     @GetMapping("/average-age")
